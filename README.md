@@ -8,11 +8,11 @@ description: "The user approval system to approve user registration"
 urlFragment: ""
 ---
 
-#Custom User Approval API
+# Custom User Approval API
 
 The User approval system acts as a bridge between signup user flow and user creation. The self-service sign-up user flow collects user data during the sign-up process and passes it to the approval system. The approval system user can then view/approve/deny the request.
 
-##Contents
+## Contents
 
 | File/folder         | Description                                |
 |---------------------|--------------------------------------------|
@@ -23,7 +23,7 @@ The User approval system acts as a bridge between signup user flow and user crea
 | `README.md`         | This README file.                          |
 | `LICENSE`           | The license for the sample.                |
 
-##Prerequisites
+## Prerequisites
 
 -   IDE which supports .NET Core 3.1 (VS 2019 preferred)
 
@@ -49,13 +49,13 @@ Update the values in **appsettings.json**
 
 Load the project in Visual Studio, update the values in **appsettings.json**, and then build and run the app.
 
-##Key concepts
+## Key concepts
 
 ### Create Request
 
 The API connectors (setup in the AAD tenant) will use the ***checkstatus*** & ***submit*** endpoints in **UserApprovalController** to communicate with the approval system. The ***checkstatus*** endpoint is to check whether the request is allowed to create and the ***submit*** endpoint is for creating a new approval request.
 
-###Approval
+### Approval
 In the case of a non-federated user, the approval system will create an invitation in the AAD against the email id in the approval request. The recipient should accept the invitation to complete the signup process.
 
 In the case of a federated user, the approval system will create a user account in the AAD and send a notification to the email id in the approval request.
