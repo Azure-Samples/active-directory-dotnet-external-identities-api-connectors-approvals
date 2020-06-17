@@ -1,0 +1,50 @@
+﻿@model List<UserModel>
+@{
+    ViewData["Title"] = "Details";
+}
+
+@if (Model == null || !Model.Any())
+{
+    <h3>Approval not found</h3>
+
+    <p>Email @ViewBag.Email does not have an approval request pending</p>
+    <div class="col-sm-offset-2 col-sm-10">
+        @Html.ActionLink("Go Back", "Index", "Approval", null, new { @class = "btn btn-primary" })
+    </div>
+}
+else
+{
+<h3>Approval(s) found for @ViewBag.Email</h3>
+
+    <div>
+
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">Identity Provider</th>
+                    <th scope="col">State</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdentityProvider</td>
+                        <td>@item.StatusWithTime</td>
+                        <td>
+                            <form class="form-horizontal" asp-controller="Approval" method="post">                                
+                                @*@Html.Hidden("Identities", item.Identities)*@
+                                @Html.Hidden("Id", item.Id)
+                                <button type="submit" class="btn btn-success" formaction="ApproveRequest">Approve</button>
+                                <button type="submit" class="btn btn-danger" formaction="DenyRequest">Deny</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+}
