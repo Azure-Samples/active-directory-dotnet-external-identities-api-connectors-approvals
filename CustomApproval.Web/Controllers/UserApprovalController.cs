@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using CustomApproval.Authentication;
+using CustomApproval.Web.Entities;
 using CustomApproval.Web.Models;
 using CustomApproval.Web.Models.GraphApi;
 using CustomApproval.Web.Services;
@@ -26,6 +28,7 @@ namespace CustomApproval.Web.Controllers
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
+        [BasicAuth]
         [ActionName("checkstatus")]
         [HttpPost]
         public async Task<IActionResult> CheckApprovalStatus([FromBody] CheckApprovalStatusInputModel inputClaims)
@@ -56,6 +59,7 @@ namespace CustomApproval.Web.Controllers
 
         }
 
+        [BasicAuth]
         [HttpPost]
         [ActionName("submit")]
         public async Task<IActionResult> RegisterForApproval()
