@@ -27,7 +27,7 @@ The User approval system acts as a bridge between signup user flow and user crea
 
 -   IDE which supports .NET Core 3.1 (VS 2019 preferred)
 
--   An ([Azure Active Directory tenant.])
+-   An [Azure Active Directory tenant.]
 
 -   An application registered in the AAD tenant with user read & write permissions (Learn more about [registering an app in AAD.])
 
