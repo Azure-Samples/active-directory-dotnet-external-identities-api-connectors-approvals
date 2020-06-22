@@ -27,6 +27,8 @@ The User approval system acts as a bridge between signup user flow and user crea
 
 -   IDE which supports .NET Core 3.1 (VS 2019 preferred)
 
+-   An ([Azure Active Directory tenant.])
+
 -   An application registered in the AAD tenant with user read & write permissions (Learn more about [registering an app in AAD.])
 
 -   A SendGrid account having an API Key (Learn more about [creating a SendGrid account.])
@@ -38,6 +40,10 @@ Update the values in **appsettings.json**
 **AppSettings:ParentAppRedirectUrl** -- The redirect URL present in the email received to the user after their request gets approved.
 
 **AppSettings:DefaultLocale** -- The default locale to be used if there is no localization identifier present in the request.
+
+**BasicAuth:ApiUsername** -- The Approvals API username
+
+**BasicAuth:ApiPassword** -- The approvals API password
 
 **GraphApi:Tenant** -- The AAD tenant name.
 
@@ -56,9 +62,9 @@ Load the project in Visual Studio, update the values in **appsettings.json**, an
 The API connectors (setup in the AAD tenant) will use the ***checkstatus*** & ***submit*** endpoints in **UserApprovalController** to communicate with the approval system. The ***checkstatus*** endpoint is to check whether the request is allowed to create and the ***submit*** endpoint is for creating a new approval request.
 
 ### Approval
-In the case of a non-federated user, the approval system will create an invitation in the AAD against the email id in the approval request. The recipient should accept the invitation to complete the signup process.
+In the case of an Azure AD user signing up, the approval system will create an invitation against the email id in the approval request. The recipient should accept the invitation to complete the sign-up process and gain access to the application.
 
-In the case of a federated user, the approval system will create a user account in the AAD and send a notification to the email id in the approval request.
+In the case of a federated social user, the approval system will create a guest user account in the AAD and send a notification to the email id in the approval request.
 
 Contributing
 ------------
@@ -73,3 +79,4 @@ For more information see the \[Code of Conduct FAQ\] (https://opensource.microso
 
   [registering an app in AAD.]: https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
   [creating a SendGrid account.]: https://docs.microsoft.com/en-us/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account
+  [Azure Active Directory tenant.]: https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant  
