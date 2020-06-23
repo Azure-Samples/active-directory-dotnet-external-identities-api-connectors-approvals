@@ -75,7 +75,7 @@ After the Azure AD tenant has been configured for use with External Identities s
 #### Check status
 
 - **Display Name**: Choose a name, such as 'Check approval status'
-- **Endpoint URL**: Use the URL created when publishing the Custom Approvals app (/approvals/checkstatus)
+- **Endpoint URL**: Use the URL created when publishing the Custom Approvals app (api/approvals/checkstatus)
 - **Username**: Username defined in the **appsettings.json** file (BasicAuth:ApiUsername)
 - **Password**: Password defined in the **appsettings.json** file (BasicAuth:ApiPassword)
 - **Claims to send**:
@@ -89,7 +89,7 @@ The API connector configuration should look like the following:
 #### Submit approval request
 
 - **Display Name**: Choose a name, such as 'Submit approval request'
-- **Endpoint URL**: Use the URL created when publishing the Custom Approvals app (/approvals/submit)
+- **Endpoint URL**: Use the URL created when publishing the Custom Approvals app (api/approvals/submit)
 - **Username**: Username defined in the **appsettings.json** file (BasicAuth:ApiUsername)
 - **Password**: Password defined in the **appsettings.json** file (BasicAuth:ApiPassword)
 - **Claims to send**:
