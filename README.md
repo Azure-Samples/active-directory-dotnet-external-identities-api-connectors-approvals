@@ -65,7 +65,7 @@ In the case of a federated social user, the approval system will create a guest 
 [Create a self-service sign up user flow] for registering external users to your Azure Active Directory tenant.
 
 Under **User attributes**, the following must be selected to collect the information from the user signing up:
-![User attributes](/images/user-flow-attributes.png "User attributes selected")
+![User attributes](/Images/user-flow-attributes.png "User attributes selected")
 
 ### Create an API connector
 
