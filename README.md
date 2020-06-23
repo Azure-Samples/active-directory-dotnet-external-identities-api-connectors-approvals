@@ -65,7 +65,7 @@ In the case of a federated social user, the approval system will create a guest 
 [Create a self-service sign up user flow] for registering external users to your Azure Active Directory tenant.
 
 Under **User attributes**, the following must be selected to collect the information from the user signing up:
-![User attributes](/images/user-flow-attributes.png "User attributes selected")
+![User attributes](/Images/user-flow-attributes.png "User attributes selected")
 
 ### Create an API connector
 
@@ -82,7 +82,7 @@ After the Azure AD tenant has been configured for use with External Identities s
   - Identity collection
 
 The API connector configuration should look like the following:
-![Check status](/images/api-connector-check-status.png "Check status API connector")
+![Check status](/Images/api-connector-check-status.png "Check status API connector")
 
 #### Submit approval request
 
@@ -98,12 +98,12 @@ The API connector configuration should look like the following:
   - Surname
 
 The API connector configuration should look like the following:
-![Submit approval](/images/api-connector-submit.png "Submit approval API connector")
+![Submit approval](/Images/api-connector-submit.png "Submit approval API connector")
 
 ### Enable the API connectors in the user flow
 
 You now need to enable the API connectors you configured in the user flow. Navigate back to **User flows (Preview)**, clikc the user flow you created, and click on **API connectors**. From here, select the drop-down menu for **After signing in with an identity provider** and select the API connector for ***Check approval status***. Then, select the drop-down menu for **Before creating the user** and select the API connector for ***Submit approval request***.
-![User flow API connectors](/images/user-flow-api-connectors.png "User flow API connectors")
+![User flow API connectors](/Images/user-flow-api-connectors.png "User flow API connectors")
 
 ### End user experience
 
