@@ -60,6 +60,8 @@ In the case of a federated social user, the approval system will create a guest 
 
 ## Integrate the Custom Approvals app with External Identities self-service sign up
 
+With External Identities self-service sign up and API connectors, you can [add a custom approval workflow] to your self-service sign up process.
+
 ### Configure a self-service sign up user flow
 
 [Create a self-service sign up user flow] for registering external users to your Azure Active Directory tenant.
@@ -109,6 +111,21 @@ You now need to enable the API connectors you configured in the user flow. Navig
 
 ![User flow API connectors](/Images/user-flow-api-connectors.png "User flow API connectors")
 
+### Managing approval requests
+
+Once an approval request has been submitted after a user completes sign up, you will find the request in the Custom Approvals app. When you go to the Custom Approvals app you deployed, you will see a screen like this:
+
+![Custom Approvals home page](/Images/custom-approval-home.png "Custom approval home page")
+
+You will then enter the email address of the user who signed up to find their approval request, and choose ***Submit***. This will allow you to find the submitted approval request and take action on it.
+
+You can take two actions:
+
+- **Approve**: this action approves the request, [provisions the user in your Azure AD tenant], and sends an email to the address of the user who signed up to inform them their request was approved
+- **Deny**: this action denies the request and will keep that state so if the user tries to sign up again, they will be informed their request was denied and they are unable to proceed
+
+![Custom Approvals actions](/Images/custom-approval-actions.png "Custom approval actions")
+
 ### End user experience
 
 Your self-service sign up user flow should now be calling out to the API when a user signs up. This will check the status of an approval request after a user signs in, and if one does not exist, submit a new one once they provide the information requested in the user flow. After submitting the information, the user will be informed that their request to access the application has been submitted. This will provision an approval request in the Custom Approvals application that can be approved or denied.
@@ -132,3 +149,5 @@ For more information see the \[Code of Conduct FAQ\] (https://opensource.microso
   [Azure App Service.]: https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019
   [Create a self-service sign up user flow]: https://docs.microsoft.com/azure/active-directory/b2b/self-service-sign-up-user-flow
   [create an API connector]: https://docs.microsoft.com/azure/active-directory/b2b/self-service-sign-up-add-api-connector#create-an-api-connector
+  [provisions the user in your Azure AD tenant]: https://docs.microsoft.com/en-us/azure/active-directory/b2b/self-service-sign-up-add-approvals#user-account-creation-after-manual-approval
+  [add a custom approval workflow]: https://docs.microsoft.com/en-us/azure/active-directory/b2b/self-service-sign-up-add-approvals
