@@ -67,7 +67,7 @@ namespace CustomApproval.Web.Extensions
             var data = new Dictionary<string, object>();
             data.Add("displayName", userData.DisplayName);
             data.Add("mail", userData.Email);
-            data.Add("userPrincipalName", $"{userData.Email.Replace("@", "_")}#EXT@{tenant}");
+            data.Add("userPrincipalName", $"{userData.Email.Replace("@", "_")}#EXT#@{tenant}");
             data.Add("mailNickname", userData.Email.Split("@")[0]);
             data.Add("accountEnabled", true);
             data.Add("userType", "Guest");
